@@ -13,9 +13,7 @@ CONSTRAINT chkEmail CHECK (email LIKE '%@%')
 CREATE TABLE sensor (
 idSensor INT PRIMARY KEY AUTO_INCREMENT,
 numSerie VARCHAR(45),
-fkSetor INT,
-CONSTRAINT setorFk FOREIGN KEY (fkSetor)
-	REFERENCES setor(idSetor)
+setor VARCHAR(50)
 );
 
 CREATE TABLE baseIntegrada (
@@ -37,10 +35,7 @@ CONSTRAINT fkBaseInt FOREIGN KEY (fkBi)
 	REFERENCES baseIntegrada(idBaseInt)
 );	
 
-CREATE TABLE setor (
-idSetor INT PRIMARY KEY AUTO_INCREMENT,
-nomeArea VARCHAR (45)
-);
+
 
 
 
