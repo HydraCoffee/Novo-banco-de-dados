@@ -5,7 +5,8 @@ CREATE TABLE empresa (
     idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
     razaoSocial VARCHAR(45) NOT NULL,
     cnpj CHAR(14) NOT NULL,
-    nomeFantasia VARCHAR(45) NOT NULL
+    nomeFantasia VARCHAR(45) NOT NULL,
+    codigo VARCHAR(7) UNIQUE NOT NULL
 );
 
 CREATE TABLE funcionario (
@@ -68,3 +69,22 @@ CREATE TABLE alerta (
     CONSTRAINT fkAleMedicao FOREIGN KEY (fkMedicao) 
     REFERENCES medicao(idMedicao)
 ); 
+
+INSERT INTO empresa (razaoSocial, cnpj, nomeFantasia, codigo)
+VALUES
+('Cafezin da Serra Comercio de Cafe LTDA', '12345678000199', 'Cafezin da serra', 'CAF0001'),
+('Grãos de Ouro Agronegocios S.A.', '98765432000188', 'Grãos de Ouro', 'GRA0002'),
+('Brasil Café LTDA', '45612378000122', 'Brasil Café', 'BRA0003');
+
+INSERT INTO setor (regiao, fkEmpresa)
+VALUES
+('Norte', 1),
+('Sul', 1),
+('Norte', 2),
+('Sul', 2),
+('Norte', 3),
+('Sul', 3);
+
+INSERT INTO sensor (statusSensor, talhao, fila, planta, fkSetor)
+VALUES
+('Funcionando', 'Talhão A', 1, 1, 1);
